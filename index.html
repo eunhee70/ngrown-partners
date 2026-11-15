@@ -42,7 +42,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
 /* 상단 메뉴 */
 .nav{position:fixed;top:1rem;left:0;right:0;z-index:50}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem}
-.nav .logo img{height:24px;width:auto}
+.nav .logo{display:inline-flex;padding:.55rem .9rem;border-radius:999px;background:rgba(255,255,255,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.6)}
+.nav .logo img{height:22px;width:auto}
 .nav .pill{display:flex;gap:.25rem;padding:.35rem;border-radius:999px;background:rgba(255,255,255,.45);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.6)}
 .nav .pill a{text-decoration:none;font-size:14px;font-weight:600;padding:.45rem .95rem;border-radius:999px;transition:background .5s var(--ease)}
 .nav .pill a:hover{background:rgba(255,255,255,.7)}
