@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>판매 희망 관리 | 엔그로운</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{--ink:#0d2440;--harbor:#17406b;--tide:#3f6fa6;--mist:#cddbea;--frost:#edf3f9;--new:#b3261e}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+body{font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;background:var(--frost);color:var(--ink);font-size:16px;line-height:1.6;word-break:keep-all}
+.wrap{width:min(760px,100% - 2rem);margin:0 auto;padding:1.5rem 0 4rem}
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem}
+header img{height:22px}
+h1{font-size:1.4rem;font-weight:800}
+button{font:inherit;cursor:pointer;border:0;border-radius:12px;min-height:44px}
+:focus-visible{outline:3px solid var(--tide);outline-offset:2px}
+.login{background:#fff;border-radius:20px;padding:1.75rem;max-width:420px;margin:12vh auto 0}
+.login h1{margin-bottom:1rem}
+.login input{width:100%;font:inherit;font-size:17px;padding:.85rem 1rem;border:1.5px solid #c3d2e3;border-radius:12px;margin-bottom:.75rem}
+.primary{width:100%;background:var(--ink);color:#fff;font-weight:700;padding:.8rem}
+.err{color:var(--new);font-weight:700;margin-top:.6rem;min-height:1.4em}
+.count{background:var(--ink);color:#fff;border-radius:20px;padding:1.25rem 1.5rem;display:flex;align-items:baseline;gap:.6rem;margin-bottom:1.25rem}
+.count b{font-size:2.6rem;line-height:1}
+.tools{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;gap:.5rem}
+.ghost{background:#fff;color:var(--ink);padding:.5rem 1rem;font-weight:600;border:1.5px solid #c3d2e3}
+.list{display:grid;gap:.8rem}
+.item{background:#fff;border-radius:16px;padding:1.1rem 1.2rem;border-left:5px solid var(--mist)}
+.item.is-new{border-left-color:var(--new)}
+.item .top{display:flex;justify-content:space-between;gap:.5rem;font-size:14px;color:#5a6f88;margin-bottom:.25rem}
+.item .name{font-size:1.15rem;font-weight:800}
+.item .line{margin-top:.2rem;overflow-wrap:anywhere}
+.copy{background:var(--frost);color:var(--ink);padding:.3rem .8rem;font-weight:600;min-height:40px;margin-top:.3rem}
+.item a{color:var(--harbor);font-weight:600}
+.status{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;margin-top:.9rem}
+.status button{background:var(--frost);color:var(--ink);font-weight:600}
+.status button[aria-pressed="true"]{background:var(--harbor);color:#fff}
+.empty{background:#fff;border-radius:16px;padding:2rem;text-align:center;color:#5a6f88}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <form class="login" id="login">
+    <h1>판매 희망 관리</h1>
+    <label for="pw" style="display:block;font-weight:700;margin-bottom:.4rem">관리자 비밀번호</label>
+    <input id="pw" type="password" autocomplete="current-password" required>
+    <button class="primary" type="submit">들어가기</button>
+    <p class="err" id="login-err" role="alert"></p>
+  </form>
+
+  <main id="board" hidden>
+    <header><img src="/assets/logo.png" alt="N-GROWN"><button class="ghost" id="logout" type="button">나가기</button></header>
+    <div class="count"><b id="new-count">0</b><span>건의 새 판매 희망</span></div>
+    <div class="tools"><h1>판매 희망 목록</h1><button class="ghost" id="reload" type="button">새로고침</button></div>
+    <p class="err" id="board-err" role="alert"></p>
+    <div class="list" id="list"></div>
+  </main>
+</div>
+
+<script>
+const KEY='ngrown-admin';
+const $=id=>document.getElementById(id);
+const STATUSES=['새 문의','연락함','완료'];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const getPw=()=>{try{return sessionStorage.getItem(KEY)||''}catch{return ''}};
+const setPw=v=>{try{v?sessionStorage.setItem(KEY,v):sessionStorage.removeItem(KEY)}catch{}};
+
+async function api(method,body){
+  const r=await fetch('/api/admin',{method,headers:{'x-admin-password':getPw(),'Content-Type':'application/json'},body:body?JSON.stringify(body):undefined});
+  const d=await r.json().catch(()=>({}));
+  if(r.status===401){ showLogin('비밀번호가 맞지 않아요.'); throw new Error('401'); }
+  if(!r.ok) throw new Error(d.error||'불러오지 못했어요.');
+  return d;
+}
+function showLogin(msg){ setPw(''); $('board').hidden=true; $('login').hidden=false; $('login-err').textContent=msg||''; $('pw').value=''; $('pw').focus(); }
+function link(u){
+  if(!u) return '<span style="color:#5a6f88">채널 주소 없음</span>';
+  const href=/^https?:\/\//i.test(u)?u:'https://'+u;
+  return `<a href="${esc(href)}" target="_blank" rel="noopener noreferrer">${esc(u)}</a>`;
+}
+function render(rows){
+  $('new-count').textContent=rows.filter(r=>r.status==='새 문의').length;
+  if(!rows.length){ $('list').innerHTML='<div class="empty">아직 들어온 판매 희망이 없어요. 사이트 주소를 인플루언서에게 보내 보세요.</div>'; return; }
+  $('list').innerHTML=rows.map(r=>`
+    <article class="item ${r.status==='새 문의'?'is-new':''}">
+      <div class="top"><span>${esc(new Date(r.created_at).toLocaleString('ko-KR'))}</span><span>${esc(r.status)}</span></div>
+      <div class="name">${esc(r.name)}</div>
+      <div class="line">${esc(r.contact)} <button class="copy" type="button" data-copy="${esc(r.contact)}">복사</button></div>
+      <div class="line">${link(r.channel)}</div>
+      <div class="status" role="group" aria-label="처리 상태">
+        ${STATUSES.map(s=>`<button type="button" data-id="${r.id}" data-status="${s}" aria-pressed="${r.status===s}">${s}</button>`).join('')}
+      </div>
+    </article>`).join('');
+}
+async function load(){
+  $('board-err').textContent='';
+  try{ const d=await api('GET'); $('login').hidden=true; $('board').hidden=false; render(d.rows||[]); }
+  catch(e){ if(e.message!=='401') $('board-err').textContent=e.message; }
+}
+$('login').addEventListener('submit',e=>{ e.preventDefault(); setPw($('pw').value); load(); });
+$('reload').addEventListener('click',load);
+$('logout').addEventListener('click',()=>showLogin(''));
+$('list').addEventListener('click',async e=>{
+  const c=e.target.closest('[data-copy]');
+  if(c){ try{ await navigator.clipboard.writeText(c.dataset.copy); c.textContent='복사됨'; setTimeout(()=>c.textContent='복사',1500); }
+    catch{ const s=getSelection(), rg=document.createRange(); rg.selectNodeContents(c.parentNode.firstChild); s.removeAllRanges(); s.addRange(rg); } return; }
+  const b=e.target.closest('[data-status]');
+  if(b){ try{ await api('PATCH',{id:Number(b.dataset.id),status:b.dataset.status}); load(); }catch(err){ if(err.message!=='401') $('board-err').textContent=err.message; } }
+});
+if(getPw()) load(); else $('pw').focus();
+</script>
+</body>
+</html>

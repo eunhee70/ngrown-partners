@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>엔그로운 공구 파트너 모집 | 아해교육포럼</title>
+<meta name="description" content="아해교육포럼의 엔그로운 몬테소리 원목 시리즈(1단 책장, 1인 스툴, 아기 독서대)로 공동구매를 열어 보세요. 판매 희망을 남기시면 공구 조건을 따로 안내해 드려요.">
+<meta property="og:title" content="엔그로운 공구 파트너 모집">
+<meta property="og:description" content="몬테소리 원목 1단 책장, 1인 스툴, 아기 독서대. 판매 희망을 남기시면 공구 조건을 따로 안내해 드려요.">
+<meta property="og:image" content="/assets/shelf.jpg">
+<link rel="icon" href="/assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --ink:#0d2440;      /* 짙은 남색: 글자 */
+  --harbor:#17406b;   /* 깊은 파랑: 큰 면 */
+  --tide:#3f6fa6;     /* 중간 파랑: 강조 */
+  --mist:#cddbea;     /* 옅은 파랑: 첫 화면 */
+  --frost:#edf3f9;    /* 가장 옅은 파랑: 바탕 */
+  --birch:#efe4d1;    /* 자작나무 색: 제품과 잇는 따뜻한 한 점 */
+  --ease:cubic-bezier(.16,1,.3,1);
+  --r-xl:5rem; --r-lg:2.5rem; --r-md:1.25rem;
+  --shadow:0 30px 60px -20px rgba(13,36,64,.28);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;color:var(--ink);background:var(--mist);line-height:1.7;font-size:17px;word-break:keep-all;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--tide);outline-offset:3px;border-radius:6px}
+
+/* 종이 같은 결: 아주 옅은 노이즈 */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.wrap{width:min(1200px,100% - 2.5rem);margin-inline:auto}
+
+/* 상단 메뉴 */
+.nav{position:fixed;top:1rem;left:0;right:0;z-index:50}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.nav .logo img{height:24px;width:auto}
+.nav .pill{display:flex;gap:.25rem;padding:.35rem;border-radius:999px;background:rgba(255,255,255,.45);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.6)}
+.nav .pill a{text-decoration:none;font-size:14px;font-weight:600;padding:.45rem .95rem;border-radius:999px;transition:background .5s var(--ease)}
+.nav .pill a:hover{background:rgba(255,255,255,.7)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font:inherit;font-weight:700;font-size:16px;text-decoration:none;border:0;cursor:pointer;border-radius:999px;padding:.9rem 1.6rem;background:var(--ink);color:#fff;transition:transform .6s var(--ease),background .6s var(--ease)}
+.btn:hover{transform:translateY(-2px);background:var(--harbor)}
+.btn.small{padding:.6rem 1.1rem;font-size:14px}
+.btn.light{background:#fff;color:var(--ink)}
+.btn.light:hover{background:var(--birch)}
+
+/* 첫 화면 */
+.hero{position:relative;min-height:100svh;padding:7rem 0 3rem;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.word{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:22.5vw;line-height:.78;letter-spacing:-.04em;color:var(--ink);text-align:center;white-space:nowrap;position:relative;z-index:1;margin-bottom:2.5rem;user-select:none}
+.word span{display:inline-block;transform:translateY(105%);opacity:0;animation:rise 1.2s var(--ease) forwards}
+@keyframes rise{to{transform:none;opacity:1}}
+.float{position:absolute;z-index:2;border-radius:3rem;overflow:hidden;box-shadow:var(--shadow);animation:float 9s ease-in-out infinite}
+.float img{width:100%;height:100%;object-fit:cover}
+.f1{width:clamp(130px,19vw,270px);aspect-ratio:1;top:13%;left:5%;--rot:-6deg}
+.f2{width:clamp(120px,16vw,230px);aspect-ratio:4/5;top:9%;right:7%;--rot:5deg;animation-delay:-3s}
+.f3{width:clamp(110px,13vw,190px);aspect-ratio:1;top:12%;left:40%;--rot:3deg;animation-delay:-6s}
+@keyframes float{0%,100%{transform:translateY(var(--py,0px)) rotate(var(--rot))}50%{transform:translateY(calc(var(--py,0px) - 18px)) rotate(calc(var(--rot) + 3deg))}}
+.hero-foot{position:relative;z-index:3;display:grid;grid-template-columns:1.3fr 1fr;gap:2rem 4rem;align-items:end}
+.hero h1{font-size:clamp(1.75rem,3.4vw,2.9rem);line-height:1.3;font-weight:800;letter-spacing:-.03em}
+.hero-side p{margin-bottom:1.25rem;max-width:34ch}
+.made{font-size:14px;color:var(--harbor);font-weight:600;margin-bottom:.9rem}
+
+/* 공통 큰 면 */
+.panel{position:relative;border-radius:var(--r-xl) var(--r-xl) 0 0;padding:6rem 0 7rem;margin-top:-3rem}
+.panel h2{font-size:clamp(2rem,5vw,3.6rem);line-height:1.15;font-weight:800;letter-spacing:-.035em;margin-bottom:1rem}
+.lead{max-width:46ch;font-size:18px}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;margin-bottom:3.5rem;flex-wrap:wrap}
+
+/* 제품 */
+.products{background:var(--frost)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.card .ph{aspect-ratio:4/5;border-radius:var(--r-lg);overflow:hidden;background:var(--birch);margin-bottom:1.4rem}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.card:hover .ph img{transform:scale(1.06)}
+.card h3{font-size:1.45rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.35rem}
+.card .for{display:inline-block;font-size:14px;font-weight:700;color:var(--harbor);background:var(--mist);border-radius:999px;padding:.2rem .8rem;margin-bottom:.8rem}
+.card p{margin-bottom:1rem}
+.spec{display:grid;grid-template-columns:auto 1fr;gap:.25rem 1rem;font-size:15px;border-top:1px solid #c9d6e4;padding-top:.9rem}
+.spec dt{color:var(--harbor);font-weight:600}
+
+/* 믿을 수 있는 이유 */
+.trust{background:var(--harbor);color:var(--frost)}
+.trust .lead{color:#c3d3e6}
+.trust-body{display:grid;grid-template-columns:1fr 1.05fr;gap:3rem;align-items:center}
+.trust-photo{border-radius:var(--r-lg);overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.4)}
+.facts{list-style:none;display:grid;gap:1.1rem}
+.facts li{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:var(--r-md);padding:1.3rem 1.5rem}
+.facts strong{display:block;font-size:1.2rem;color:#fff;margin-bottom:.2rem}
+.facts span{color:#c3d3e6;font-size:16px}
+
+/* 진행 방식 */
+.how{background:var(--frost)}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;counter-reset:s}
+.steps li{position:relative;background:#fff;border-radius:var(--r-lg);padding:2.2rem 2rem 2rem;counter-increment:s}
+.steps li::before{content:counter(s);font-family:Anton,Impact,sans-serif;font-size:4.5rem;line-height:1;color:var(--mist);display:block;margin-bottom:1rem}
+.steps h3{font-size:1.25rem;font-weight:800;margin-bottom:.4rem}
+.note{margin-top:2rem;font-size:15px;color:var(--harbor)}
+
+/* 신청 */
+.apply{background:var(--ink);color:var(--frost)}
+.apply-body{display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;align-items:start}
+.apply-photo{border-radius:var(--r-lg);overflow:hidden;margin-top:2rem;aspect-ratio:4/5;max-width:440px}
+.apply-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 70%}
+.apply .lead{color:#b9c9dc}
+form{background:var(--frost);color:var(--ink);border-radius:var(--r-lg);padding:2.4rem}
+.field{margin-bottom:1.3rem}
+.field label{display:block;font-weight:700;margin-bottom:.45rem}
+.field small{font-weight:500;color:#5a6f88}
+.field input{width:100%;font:inherit;font-size:17px;padding:.95rem 1.1rem;border:1.5px solid #c3d2e3;border-radius:14px;background:#fff;color:var(--ink);transition:border-color .4s var(--ease)}
+.field input:focus{outline:none;border-color:var(--tide)}
+.agree{display:flex;gap:.75rem;align-items:flex-start;font-size:15px;line-height:1.55;margin:1.6rem 0;background:#fff;border-radius:14px;padding:1rem 1.1rem}
+.agree input{width:22px;height:22px;flex:none;margin-top:1px;accent-color:var(--harbor)}
+.trap{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+form .btn{width:100%;padding:1.1rem;font-size:18px}
+.msg{margin-top:1rem;font-weight:700;min-height:1.5em}
+.msg.ok{color:#1d6b46}.msg.err{color:#b3261e}
+.done{text-align:center;padding:2rem .5rem}
+.done strong{display:block;font-size:1.5rem;margin-bottom:.4rem}
+
+/* 바닥글 */
+footer{background:var(--ink);color:#9fb3cb;padding:0 0 3rem;font-size:15px}
+footer .wrap{border-top:1px solid rgba(255,255,255,.12);padding-top:2rem;display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+footer img{height:22px;width:auto;filter:brightness(0) invert(1);opacity:.85;margin-bottom:.8rem}
+
+@media (max-width:900px){
+  .nav .pill{display:none}
+  .hero{padding-top:6rem}
+  .hero-foot,.trust-body,.apply-body{grid-template-columns:1fr}
+  .grid,.steps{grid-template-columns:1fr}
+  .f3{display:none}
+  .f1{top:14%;left:4%}.f2{top:12%;right:4%}
+  .panel{border-radius:3rem 3rem 0 0;padding:4.5rem 0 5.5rem}
+  .apply-photo{display:none}
+  .hero h1 br{display:none}
+  .trust-photo{aspect-ratio:4/3}
+  .trust-photo img{width:100%;height:100%;object-fit:cover}
+  form{padding:1.6rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .word span{transform:none;opacity:1}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="엔그로운 처음으로"><img src="/assets/logo.png" alt="N-GROWN" width="600" height="129"></a>
+    <nav class="pill" aria-label="바로가기">
+      <a href="#products">제품</a>
+      <a href="#trust">믿을 수 있는 이유</a>
+      <a href="#how">진행 방식</a>
+    </nav>
+    <a class="btn small" href="#apply">판매 희망 남기기</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="float f1" data-speed=".05"><img src="/assets/shelf.jpg" alt="곰돌이 모양 원목 1단 책장" width="1000" height="1000"></div>
+    <div class="float f2" data-speed=".08"><img src="/assets/stand-room.jpg" alt="웃는 얼굴이 새겨진 원목 아기 독서대" width="900" height="1439"></div>
+    <div class="float f3" data-speed=".03"><img src="/assets/stool.jpg" alt="곰돌이 모양 원목 1인 스툴" width="1000" height="1000"></div>
+
+    <p class="word" aria-hidden="true"><span>N</span><span>-</span><span>G</span><span>R</span><span>O</span><span>W</span><span>N</span></p>
+
+    <div class="wrap hero-foot">
+      <div>
+        <p class="made">아해교육포럼 · 엔그로운 몬테소리 원목 시리즈</p>
+        <h1 id="hero-title">아이에게 자신 있게 권할 원목 교구,<br>함께 소개해 주실 공구 파트너를 찾습니다.</h1>
+      </div>
+      <div class="hero-side">
+        <p>1단 책장, 1인 스툴, 아기 독서대. 판매 희망을 남기시면 공구가와 진행 조건을 따로 안내해 드려요.</p>
+        <a class="btn" href="#apply">판매 희망 남기기</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel products" id="products" aria-labelledby="p-title">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <h2 id="p-title">소개해 주실 제품</h2>
+          <p class="lead">몬테소리 교육철학을 바탕으로, 아이가 스스로 꺼내고 앉고 읽도록 만든 원목 가구 3종이에요.</p>
+        </div>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="ph"><img src="/assets/shelf-books.jpg" alt="그림책을 꽂은 곰돌이 1단 책장" loading="lazy" width="1000" height="932"></div>
+          <h3>몬테소리 곰돌이 1단 책장</h3>
+          <span class="for">아이 눈높이 사이즈</span>
+          <p>아이가 스스로 책을 꺼내 읽고 다시 꽂을 수 있어요. 가벼워서 거실, 아이방, 잠자리 어디로든 옮기기 쉬워요.</p>
+          <dl class="spec"><dt>크기</dt><dd>480 × 290 × 230mm</dd><dt>재질</dt><dd>러시아산 자작나무</dd></dl>
+        </article>
+        <article class="card">
+          <div class="ph"><img src="/assets/stool-shoes.jpg" alt="현관에서 1인 스툴에 앉아 신발을 신는 아이" loading="lazy" width="1000" height="649"></div>
+          <h3>몬테소리 원목 1인 스툴</h3>
+          <span class="for">걸음마 이후부터</span>
+          <p>도움 없이 앉고 일어나며, 현관에서 혼자 신발을 신는 연습을 할 수 있어요. 생활 속 자립 교육을 돕는 가구예요.</p>
+          <dl class="spec"><dt>크기</dt><dd>425 × 285 × 230mm</dd><dt>재질</dt><dd>러시아산 자작나무</dd></dl>
+        </article>
+        <article class="card">
+          <div class="ph"><img src="/assets/stand-book.jpg" alt="그림책을 올려 둔 원목 아기 독서대" loading="lazy" width="1000" height="830"></div>
+          <h3>몬테소리 원목 아기 독서대</h3>
+          <span class="for">스스로 앉을 수 있는 시기부터</span>
+          <p>허리를 굽히거나 고개를 떨구지 않고 바른 자세로 책을 보게 해 줘요. 스스로 읽는 습관의 시작을 도와요.</p>
+          <dl class="spec"><dt>크기</dt><dd>450 × 300 × 326mm</dd><dt>재질</dt><dd>러시아산 자작나무</dd></dl>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel trust" id="trust" aria-labelledby="t-title">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <h2 id="t-title">팔로워에게 자신 있게<br>권할 수 있는 이유</h2>
+          <p class="lead">아이가 매일 만지는 가구라서, 재료와 안전부터 확인했어요.</p>
+        </div>
+      </div>
+      <div class="trust-body">
+        <ul class="facts">
+          <li><strong>E0 등급 이상 러시아산 자작나무</strong><span>아이들의 안전과 건강을 생각해 친환경 자재로 만들었어요.</span></li>
+          <li><strong>친환경 수성페인트</strong><span>얼굴 그림과 마감에 친환경 수성페인트를 사용했어요.</span></li>
+          <li><strong>시험연구원 공급자 적합성 확인</strong><span>1단 책장과 1인 스툴은 KOTITI 시험연구원, 아기 독서대는 FITI 시험연구원에서 확인받았어요.</span></li>
+          <li><strong>누구나 쉬운 DIY 조립</strong><span>모든 부품과 육각렌치가 함께 들어 있고, QR 영상 조립 가이드를 제공해요.</span></li>
+        </ul>
+        <div class="trust-photo"><img src="/assets/parts.jpg" alt="곰돌이 옆판, 받침판, 육각렌치로 구성된 조립 부품" loading="lazy" width="1000" height="930"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel how" id="how" aria-labelledby="h-title">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <h2 id="h-title">공구는 이렇게 진행돼요</h2>
+          <p class="lead">공구가와 수익은 채널마다 따로 안내해 드려요. 먼저 판매 희망만 가볍게 남겨 주세요.</p>
+        </div>
+      </div>
+      <ol class="steps">
+        <li><h3>판매 희망 남기기</h3><p>이름, 연락처, 활동 채널 주소만 적으면 끝나요.</p></li>
+        <li><h3>담당자 연락</h3><p>채널을 확인한 뒤 연락드려 공구가, 수익, 진행 방식을 안내해 드려요.</p></li>
+        <li><h3>일정 맞추고 공구 오픈</h3><p>함께 정한 일정에 맞춰 공구를 열어요.</p></li>
+      </ol>
+      <p class="note">배송, CS, 샘플, 최소 수량 같은 세부 조건도 연락드릴 때 함께 안내해 드려요.</p>
+    </div>
+  </section>
+
+  <section class="panel apply" id="apply" aria-labelledby="a-title">
+    <div class="wrap apply-body">
+      <div>
+        <h2 id="a-title">판매 희망 남기기</h2>
+        <p class="lead">남겨 주신 채널을 보고 담당자가 연락드릴게요.</p>
+        <div class="apply-photo"><img src="/assets/stand-room.jpg" alt="아이방에 놓인 원목 아기 독서대" loading="lazy" width="900" height="1439"></div>
+      </div>
+
+      <form id="apply-form" novalidate>
+        <div class="field">
+          <label for="name">이름 또는 채널 이름</label>
+          <input id="name" name="name" autocomplete="name" maxlength="50" required>
+        </div>
+        <div class="field">
+          <label for="contact">연락처 <small>휴대폰 번호나 이메일</small></label>
+          <input id="contact" name="contact" autocomplete="tel" maxlength="100" required>
+        </div>
+        <div class="field">
+          <label for="channel">활동 채널 주소 <small>인스타, 블로그, 카페 링크</small></label>
+          <input id="channel" name="channel" inputmode="url" maxlength="300" placeholder="예: instagram.com/내아이디">
+        </div>
+        <div class="trap" aria-hidden="true"><label for="website">웹사이트</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+        <label class="agree">
+          <input type="checkbox" id="consent">
+          <span><strong>개인정보 수집·이용에 동의해요 (필수)</strong><br>이름, 연락처, 활동 채널 주소를 공구 상담 연락에만 쓰고, 상담이 끝나면 지체 없이 파기해요.</span>
+        </label>
+        <button class="btn" type="submit">판매 희망 남기기</button>
+        <p class="msg" id="msg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <img src="/assets/logo.png" alt="N-GROWN" width="600" height="129">
+      <p>주식회사 아해교육포럼</p>
+      <p>경기도 용인시 수지구 풍덕천로190번길 25, 신건프라자 6F</p>
+    </div>
+    <div>
+      <p>고객센터 <a href="tel:031-262-1881">031-262-1881</a></p>
+      <p>© 아해교육포럼</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// 첫 화면 글자가 한 자씩 올라오기
+document.querySelectorAll('.word span').forEach((s,i)=>{ s.style.animationDelay=(0.15+i*0.06)+'s'; });
+
+// 떠 있는 사진: 스크롤에 따라 살짝 다른 속도로
+const floats=[...document.querySelectorAll('.float')];
+const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!still){
+  let ticking=false;
+  addEventListener('scroll',()=>{ if(ticking) return; ticking=true; requestAnimationFrame(()=>{
+    const y=scrollY; floats.forEach(f=>f.style.setProperty('--py',(-y*parseFloat(f.dataset.speed))+'px')); ticking=false; }); },{passive:true});
+}
+
+// 판매 희망 보내기
+const form=document.getElementById('apply-form'), msg=document.getElementById('msg');
+form.addEventListener('submit',async e=>{
+  e.preventDefault();
+  msg.className='msg'; msg.textContent='';
+  const v=id=>document.getElementById(id).value.trim();
+  if(!v('name')||!v('contact')){ msg.className='msg err'; msg.textContent='이름과 연락처를 적어 주세요'; return; }
+  const consent=document.getElementById('consent').checked;
+  if(!consent){ msg.className='msg err'; msg.textContent='개인정보 수집·이용에 동의해 주세요'; return; }
+  const btn=form.querySelector('button'); btn.disabled=true; btn.textContent='보내는 중…';
+  try{
+    const r=await fetch('/api/inquiry',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name:v('name'),contact:v('contact'),channel:v('channel'),website:v('website'),consent})});
+    const d=await r.json().catch(()=>({}));
+    if(!r.ok) throw new Error(d.error||'보내지 못했어요. 잠시 뒤 다시 시도해 주세요.');
+    form.innerHTML='<div class="done" role="status"><strong>판매 희망이 접수됐어요.</strong>확인 후 연락드릴게요.</div>';
+  }catch(err){
+    msg.className='msg err'; msg.textContent=err.message||'보내지 못했어요. 잠시 뒤 다시 시도해 주세요.';
+    btn.disabled=false; btn.textContent='판매 희망 남기기';
+  }
+});
+</script>
+</body>
+</html>
