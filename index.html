@@ -8,264 +8,364 @@
 <meta property="og:title" content="엔그로운 공구 파트너 모집">
 <meta property="og:description" content="몬테소리 원목 1단 책장, 1인 스툴, 아기 독서대. 판매 희망을 남기시면 공구 조건을 따로 안내해 드려요.">
 <meta property="og:image" content="/assets/shelf.jpg">
+<meta name="theme-color" content="#050507">
 <link rel="icon" href="/assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Serif+KR:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
 :root{
-  --ink:#0d2440;      /* 짙은 남색: 글자 */
-  --harbor:#17406b;   /* 깊은 파랑: 큰 면 */
-  --tide:#3f6fa6;     /* 중간 파랑: 강조 */
-  --mist:#cddbea;     /* 옅은 파랑: 첫 화면 */
-  --frost:#edf3f9;    /* 가장 옅은 파랑: 바탕 */
-  --birch:#efe4d1;    /* 자작나무 색: 제품과 잇는 따뜻한 한 점 */
-  --ease:cubic-bezier(.16,1,.3,1);
-  --r-xl:5rem; --r-lg:2.5rem; --r-md:1.25rem;
-  --shadow:0 30px 60px -20px rgba(13,36,64,.28);
+  --void:#050507;          /* 바탕: 거의 검정 */
+  --line:rgba(255,255,255,.08);
+  --line-2:rgba(255,255,255,.14);
+  --text:#f4f4f6;
+  --muted:#a3a3ad;
+  --dim:#6d6d78;
+  --violet:#8b5cf6;
+  --cyan:#06b6d4;
+  --emerald:#10b981;
+  --birch:#e8d6b8;         /* 원목 색: 제품 사진과 잇는 따뜻한 한 점 */
+  --ease:cubic-bezier(.23,1,.32,1);
+  --serif:"Instrument Serif","Noto Serif KR",Georgia,serif;
+  --sans:"Pretendard Variable",Pretendard,system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 [hidden]{display:none!important}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;color:var(--ink);background:var(--mist);line-height:1.7;font-size:17px;word-break:keep-all;overflow-x:hidden}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;background:var(--void)}
+body{font-family:var(--sans);font-weight:400;color:var(--text);background:var(--void);line-height:1.7;font-size:17px;word-break:keep-all;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--tide);outline-offset:3px;border-radius:6px}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:8px}
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
 
-/* 종이 같은 결: 아주 옅은 노이즈 */
-body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.05;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* 떠다니는 빛 */
+.orbs{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(110px);opacity:.55;animation:drift 14s ease-in-out infinite}
+.orb.v{width:520px;height:520px;background:rgba(139,92,246,.45);top:-160px;left:50%;margin-left:-260px}
+.orb.c{width:420px;height:420px;background:rgba(6,182,212,.22);top:40%;left:-160px;animation-duration:11s;animation-delay:-4s}
+.orb.w{width:360px;height:360px;background:rgba(232,214,184,.10);bottom:-120px;right:-80px;animation-duration:16s;animation-delay:-8s}
+@keyframes drift{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-24px) scale(1.06)}}
+main,footer{position:relative;z-index:1}
 
-.wrap{width:min(1200px,100% - 2.5rem);margin-inline:auto}
-
-/* 상단 메뉴 */
-.nav{position:fixed;top:1rem;left:0;right:0;z-index:50}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem}
-.nav .logo{display:inline-flex;padding:.55rem .9rem;border-radius:999px;background:rgba(255,255,255,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.6)}
-.nav .logo img{height:22px;width:auto}
-.nav .pill{display:flex;gap:.25rem;padding:.35rem;border-radius:999px;background:rgba(255,255,255,.45);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.6)}
-.nav .pill a{text-decoration:none;font-size:14px;font-weight:600;padding:.45rem .95rem;border-radius:999px;transition:background .5s var(--ease)}
-.nav .pill a:hover{background:rgba(255,255,255,.7)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font:inherit;font-weight:700;font-size:16px;text-decoration:none;border:0;cursor:pointer;border-radius:999px;padding:.9rem 1.6rem;background:var(--ink);color:#fff;transition:transform .6s var(--ease),background .6s var(--ease)}
-.btn:hover{transform:translateY(-2px);background:var(--harbor)}
-.btn.small{padding:.6rem 1.1rem;font-size:14px}
-.btn.light{background:#fff;color:var(--ink)}
-.btn.light:hover{background:var(--birch)}
+/* 유리 메뉴 */
+.nav{position:fixed;top:1.25rem;left:50%;transform:translateX(-50%);width:min(95%,720px);z-index:50;
+  display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.45rem .45rem .45rem 1.1rem;border-radius:999px;
+  background:rgba(10,10,14,.7);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line-2)}
+.brand{display:flex;align-items:center;gap:.55rem;text-decoration:none;font-family:var(--serif);font-size:1.35rem;letter-spacing:-.01em;color:#fff}
+.brand i{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--cyan));box-shadow:0 0 12px rgba(139,92,246,.8)}
+.nav nav{display:flex;gap:1.4rem}
+.nav nav a{text-decoration:none;font-size:14px;color:var(--muted);transition:color .4s var(--ease)}
+.nav nav a:hover{color:#fff}
+.cta-sm{text-decoration:none;font-size:14px;font-weight:700;background:#fff;color:#0a0a0a;border-radius:999px;padding:.6rem 1.1rem;transition:transform .4s var(--ease)}
+.cta-sm:hover{transform:translateY(-1px)}
 
 /* 첫 화면 */
-.hero{position:relative;min-height:100svh;padding:7rem 0 3rem;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
-.word{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:22.5vw;line-height:.78;letter-spacing:-.04em;color:var(--ink);text-align:center;white-space:nowrap;position:relative;z-index:1;margin-bottom:2.5rem;user-select:none}
-.word span{display:inline-block;transform:translateY(105%);opacity:0;animation:rise 1.2s var(--ease) forwards}
-@keyframes rise{to{transform:none;opacity:1}}
-.float{position:absolute;z-index:2;border-radius:3rem;overflow:hidden;box-shadow:var(--shadow);animation:float 9s ease-in-out infinite}
-.float img{width:100%;height:100%;object-fit:cover}
-.f1{width:clamp(130px,19vw,270px);aspect-ratio:1;top:13%;left:5%;--rot:-6deg}
-.f2{width:clamp(120px,16vw,230px);aspect-ratio:4/5;top:9%;right:7%;--rot:5deg;animation-delay:-3s}
-.f3{width:clamp(110px,13vw,190px);aspect-ratio:1;top:12%;left:40%;--rot:3deg;animation-delay:-6s}
-@keyframes float{0%,100%{transform:translateY(var(--py,0px)) rotate(var(--rot))}50%{transform:translateY(calc(var(--py,0px) - 18px)) rotate(calc(var(--rot) + 3deg))}}
-.hero-foot{position:relative;z-index:3;display:grid;grid-template-columns:1.3fr 1fr;gap:2rem 4rem;align-items:end}
-.hero h1{font-size:clamp(1.75rem,3.4vw,2.9rem);line-height:1.3;font-weight:800;letter-spacing:-.03em}
-.hero-side p{margin-bottom:1.25rem;max-width:34ch}
-.made{font-size:14px;color:var(--harbor);font-weight:600;margin-bottom:.9rem}
+.hero{min-height:100svh;padding:9rem 0 4rem;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:radial-gradient(60% 45% at 50% 0%,rgba(139,92,246,.28),transparent 70%),radial-gradient(40% 40% at 0% 55%,rgba(6,182,212,.08),transparent 70%)}
+.made{display:inline-flex;align-items:center;gap:.5rem;font-size:14px;color:var(--muted);border:1px solid var(--line-2);border-radius:999px;padding:.35rem .9rem;margin-bottom:2rem;background:rgba(255,255,255,.03)}
+.made b{width:6px;height:6px;border-radius:50%;background:var(--emerald);box-shadow:0 0 10px var(--emerald)}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,5.2vw,4.9rem);line-height:1.18;letter-spacing:-.035em;max-width:12.5em;margin-inline:auto;padding:0 1.25rem}
+.shimmer{background:linear-gradient(90deg,#a78bfa 0%,#ffffff 40%,#ffffff 60%,#22d3ee 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+.hero .sub{max-width:40rem;margin:1.75rem auto 2.5rem;padding:0 1.25rem;color:var(--muted);font-size:clamp(1rem,1.6vw,1.15rem)}
+.actions{display:flex;gap:1.5rem;align-items:center;justify-content:center;flex-wrap:wrap}
+.link{color:var(--muted);text-decoration:none;font-size:16px;border-bottom:1px solid var(--line-2);padding-bottom:2px;transition:color .4s var(--ease),border-color .4s var(--ease)}
+.link:hover{color:#fff;border-color:#fff}
 
-/* 공통 큰 면 */
-.panel{position:relative;border-radius:var(--r-xl) var(--r-xl) 0 0;padding:6rem 0 7rem;margin-top:-3rem}
-.panel h2{font-size:clamp(2rem,5vw,3.6rem);line-height:1.15;font-weight:800;letter-spacing:-.035em;margin-bottom:1rem}
-.lead{max-width:46ch;font-size:18px}
-.head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;margin-bottom:3.5rem;flex-wrap:wrap}
+/* 빛나는 테두리 버튼 */
+.shiny{position:relative;display:inline-flex;padding:1px;border-radius:999px;overflow:hidden;text-decoration:none;border:0;cursor:pointer;font:inherit;background:var(--line-2);isolation:isolate}
+.shiny::before{content:"";position:absolute;width:200%;height:200%;top:-50%;left:-50%;z-index:-1;
+  background:conic-gradient(from 0deg,transparent 0%,var(--violet) 40%,var(--cyan) 50%,transparent 60%);animation:spin 4s linear infinite}
+.shiny span{display:block;border-radius:999px;background:#0a0a0e;color:#fff;font-weight:700;font-size:17px;padding:1rem 2.4rem;transition:background .4s var(--ease)}
+.shiny:hover span{background:#14141b}
+.shiny:disabled{cursor:wait;opacity:.7}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* 첫 화면 제품 사진 */
+.trio{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:1.25rem;align-items:end;width:min(1000px,100%);margin:4.5rem auto 0;padding:0 1.25rem}
+.trio figure{border-radius:28px;overflow:hidden;border:1px solid var(--line-2);box-shadow:0 30px 80px -30px rgba(139,92,246,.45);aspect-ratio:4/5;animation:drift 9s ease-in-out infinite}
+.trio figure:nth-child(1){animation-delay:-2s}
+.trio figure:nth-child(2){aspect-ratio:4/5.4;animation-delay:-4s}
+.trio figure:nth-child(3){animation-delay:-6s}
+.trio img{width:100%;height:100%;object-fit:cover}
+
+/* 사실 흐름 띠 */
+.ticker{position:relative;z-index:1;border-block:1px solid var(--line);background:rgba(0,0,0,.4);overflow:hidden;height:64px;display:flex;align-items:center}
+.track{display:flex;gap:3.5rem;white-space:nowrap;animation:roll 40s linear infinite;padding-left:3.5rem;width:max-content}
+.track div{display:flex;align-items:baseline;gap:.7rem}
+.track small{font-size:13px;color:var(--dim)}
+.track strong{font-weight:600;font-size:16px}
+.track .v{color:#c4b5fd}.track .c{color:#67e8f9}
+@keyframes roll{to{transform:translateX(-50%)}}
+
+/* 공통 구간 */
+section.block{padding:8rem 0}
+.head{max-width:40rem;margin-bottom:3.5rem}
+.head h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.1rem,4.4vw,3.6rem);line-height:1.15;letter-spacing:-.03em;margin-bottom:1rem}
+.head p{color:var(--muted);font-size:18px}
 
 /* 제품 */
-.products{background:var(--frost)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
-.card .ph{aspect-ratio:4/5;border-radius:var(--r-lg);overflow:hidden;background:var(--birch);margin-bottom:1.4rem}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.card{border:1px solid var(--line);background:rgba(255,255,255,.02);border-radius:28px;padding:1rem 1rem 1.75rem;transition:transform .7s var(--ease),border-color .7s var(--ease),background .7s var(--ease),box-shadow .7s var(--ease),opacity 1s var(--ease)}
+.card:hover{transform:translateY(-10px);border-color:rgba(139,92,246,.4);background:rgba(255,255,255,.035);box-shadow:0 0 40px -18px rgba(139,92,246,.6)}
+.card .ph{aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:var(--birch);margin-bottom:1.4rem}
 .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-.card:hover .ph img{transform:scale(1.06)}
-.card h3{font-size:1.45rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.35rem}
-.card .for{display:inline-block;font-size:14px;font-weight:700;color:var(--harbor);background:var(--mist);border-radius:999px;padding:.2rem .8rem;margin-bottom:.8rem}
-.card p{margin-bottom:1rem}
-.spec{display:grid;grid-template-columns:auto 1fr;gap:.25rem 1rem;font-size:15px;border-top:1px solid #c9d6e4;padding-top:.9rem}
-.spec dt{color:var(--harbor);font-weight:600}
+.card:hover .ph img{transform:scale(1.05)}
+.card .body{padding:0 .75rem}
+.card h3{font-family:"Noto Serif KR",serif;font-weight:600;font-size:1.3rem;letter-spacing:-.02em;margin-bottom:.6rem}
+.chip{display:inline-block;font-size:14px;font-weight:600;color:#c4b5fd;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.3);border-radius:999px;padding:.15rem .75rem;margin-bottom:.9rem}
+.card p{color:var(--muted);margin-bottom:1.1rem}
+.spec{display:grid;grid-template-columns:auto 1fr;gap:.2rem 1rem;font-size:15px;border-top:1px solid var(--line);padding-top:1rem}
+.spec dt{color:var(--dim)}
 
 /* 믿을 수 있는 이유 */
-.trust{background:var(--harbor);color:var(--frost)}
-.trust .lead{color:#c3d3e6}
-.trust-body{display:grid;grid-template-columns:1fr 1.05fr;gap:3rem;align-items:center}
-.trust-photo{border-radius:var(--r-lg);overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.4)}
-.facts{list-style:none;display:grid;gap:1.1rem}
-.facts li{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:var(--r-md);padding:1.3rem 1.5rem}
-.facts strong{display:block;font-size:1.2rem;color:#fff;margin-bottom:.2rem}
-.facts span{color:#c3d3e6;font-size:16px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+.fact{border:1px solid var(--line);background:rgba(255,255,255,.02);border-radius:24px;padding:2rem 1.6rem;transition:transform .7s var(--ease),border-color .7s var(--ease),box-shadow .7s var(--ease),opacity 1s var(--ease)}
+.fact:hover{transform:translateY(-8px);border-color:rgba(6,182,212,.35);box-shadow:0 0 40px -18px rgba(6,182,212,.5)}
+.icon{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;margin-bottom:1.4rem;transition:transform .7s var(--ease)}
+.fact:hover .icon{transform:scale(1.1) rotate(-6deg)}
+.icon.v{background:rgba(139,92,246,.14);color:#c4b5fd}
+.icon.c{background:rgba(6,182,212,.14);color:#67e8f9}
+.icon.e{background:rgba(16,185,129,.14);color:#6ee7b7}
+.icon.w{background:rgba(232,214,184,.12);color:var(--birch)}
+.fact h3{font-size:1.12rem;font-weight:700;margin-bottom:.4rem;line-height:1.45}
+.fact p{color:var(--muted);font-size:15.5px}
+.parts{margin-top:1.5rem;border-radius:28px;overflow:hidden;border:1px solid var(--line);aspect-ratio:21/8}
+.parts img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;opacity:.92}
 
-/* 진행 방식 */
-.how{background:var(--frost)}
-.steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;counter-reset:s}
-.steps li{position:relative;background:#fff;border-radius:var(--r-lg);padding:2.2rem 2rem 2rem;counter-increment:s}
-.steps li::before{content:counter(s);font-family:Anton,Impact,sans-serif;font-size:4.5rem;line-height:1;color:var(--mist);display:block;margin-bottom:1rem}
-.steps h3{font-size:1.25rem;font-weight:800;margin-bottom:.4rem}
-.note{margin-top:2rem;font-size:15px;color:var(--harbor)}
+/* 진행 방식: 창 모양 */
+.how{display:grid;grid-template-columns:1fr 1.25fr;gap:4rem;align-items:center}
+.window{background:rgba(8,8,10,.85);border:1px solid var(--line-2);border-radius:24px;overflow:hidden;box-shadow:0 30px 80px -40px rgba(6,182,212,.5)}
+.bar{display:flex;align-items:center;gap:.5rem;padding:.9rem 1.2rem;border-bottom:1px solid var(--line)}
+.bar i{width:11px;height:11px;border-radius:50%;opacity:.55}
+.bar i:nth-child(1){background:#ff5f57}.bar i:nth-child(2){background:#febc2e}.bar i:nth-child(3){background:#28c840}
+.bar span{margin-left:.75rem;font-size:13px;color:var(--dim)}
+.steps{list-style:none;padding:1.4rem 1.4rem 1.6rem;counter-reset:s}
+.steps li{display:grid;grid-template-columns:2.2rem 1fr;gap:.25rem 1rem;padding:1rem .4rem;counter-increment:s;border-bottom:1px dashed var(--line)}
+.steps li:last-child{border-bottom:0}
+.steps li::before{content:counter(s);font-family:var(--serif);font-size:2rem;line-height:1;color:#a78bfa;grid-row:span 2}
+.steps h3{font-size:1.1rem;font-weight:700}
+.steps p{color:var(--muted);font-size:15.5px}
+.note{color:var(--dim);font-size:15px;margin-top:1rem}
 
 /* 신청 */
-.apply{background:var(--ink);color:var(--frost)}
-.apply-body{display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;align-items:start}
-.apply-photo{border-radius:var(--r-lg);overflow:hidden;margin-top:2rem;aspect-ratio:4/5;max-width:440px}
-.apply-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 70%}
-.apply .lead{color:#b9c9dc}
-form{background:var(--frost);color:var(--ink);border-radius:var(--r-lg);padding:2.4rem}
+.apply{display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;align-items:start}
+.apply .side img{border-radius:28px;border:1px solid var(--line);margin-top:2rem;aspect-ratio:4/5;height:auto;object-fit:cover;object-position:50% 88%;max-width:420px;width:100%}
+form{background:rgba(10,10,14,.7);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line-2);border-radius:28px;padding:2.4rem}
 .field{margin-bottom:1.3rem}
-.field label{display:block;font-weight:700;margin-bottom:.45rem}
-.field small{font-weight:500;color:#5a6f88}
-.field input{width:100%;font:inherit;font-size:17px;padding:.95rem 1.1rem;border:1.5px solid #c3d2e3;border-radius:14px;background:#fff;color:var(--ink);transition:border-color .4s var(--ease)}
-.field input:focus{outline:none;border-color:var(--tide)}
-.agree{display:flex;gap:.75rem;align-items:flex-start;font-size:15px;line-height:1.55;margin:1.6rem 0;background:#fff;border-radius:14px;padding:1rem 1.1rem}
-.agree input{width:22px;height:22px;flex:none;margin-top:1px;accent-color:var(--harbor)}
+.field label{display:block;font-weight:600;margin-bottom:.45rem}
+.field small{font-weight:400;color:var(--dim);margin-left:.3rem}
+.field input{width:100%;font:inherit;font-size:17px;padding:.95rem 1.1rem;border:1px solid var(--line-2);border-radius:14px;background:rgba(255,255,255,.03);color:#fff;transition:border-color .4s var(--ease),box-shadow .4s var(--ease)}
+.field input::placeholder{color:var(--dim)}
+.field input:focus{outline:none;border-color:rgba(139,92,246,.7);box-shadow:0 0 0 4px rgba(139,92,246,.15)}
+.agree{display:flex;gap:.75rem;align-items:flex-start;font-size:15px;line-height:1.55;margin:1.6rem 0;color:var(--muted);border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem}
+.agree strong{color:var(--text)}
+.agree input{width:22px;height:22px;flex:none;margin-top:1px;accent-color:var(--violet)}
 .trap{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-form .btn{width:100%;padding:1.1rem;font-size:18px}
-.msg{margin-top:1rem;font-weight:700;min-height:1.5em}
-.msg.ok{color:#1d6b46}.msg.err{color:#b3261e}
-.done{text-align:center;padding:2rem .5rem}
-.done strong{display:block;font-size:1.5rem;margin-bottom:.4rem}
+form .shiny{width:100%}
+form .shiny span{width:100%;text-align:center;font-size:18px;padding:1.1rem}
+.msg{margin-top:1rem;font-weight:600;min-height:1.5em}
+.msg.err{color:#fca5a5}
+.done{text-align:center;padding:2.5rem .5rem}
+.done strong{display:block;font-family:"Noto Serif KR",serif;font-size:1.6rem;margin-bottom:.4rem}
+.done .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--emerald);box-shadow:0 0 14px var(--emerald);margin-bottom:1rem}
 
 /* 바닥글 */
-footer{background:var(--ink);color:#9fb3cb;padding:0 0 3rem;font-size:15px}
-footer .wrap{border-top:1px solid rgba(255,255,255,.12);padding-top:2rem;display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
-footer img{height:22px;width:auto;filter:brightness(0) invert(1);opacity:.85;margin-bottom:.8rem}
+footer{background:#030304;border-top:1px solid var(--line);padding:4.5rem 0 2rem;color:var(--muted);font-size:15px}
+.cols{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:2rem;margin-bottom:3.5rem}
+.cols .brand{font-size:2.2rem;margin-bottom:.75rem}
+.cols h4{font-size:13px;font-weight:600;color:var(--dim);margin-bottom:.9rem;letter-spacing:.04em}
+.cols a{text-decoration:none}.cols a:hover{color:#fff}
+.cols ul{list-style:none;display:grid;gap:.4rem}
+.bottom{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:1.5rem;font-size:14px;color:var(--dim)}
+.live{display:inline-flex;align-items:center;gap:.5rem;color:#6ee7b7}
+.live b{width:7px;height:7px;border-radius:50%;background:var(--emerald);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,.6)}50%{box-shadow:0 0 0 6px rgba(16,185,129,0)}}
 
-@media (max-width:900px){
-  .nav .pill{display:none}
-  .hero{padding-top:6rem}
-  .hero-foot,.trust-body,.apply-body{grid-template-columns:1fr}
-  .grid,.steps{grid-template-columns:1fr}
-  .f3{display:none}
-  .f1{top:14%;left:4%}.f2{top:12%;right:4%}
-  .panel{border-radius:3rem 3rem 0 0;padding:4.5rem 0 5.5rem}
-  .apply-photo{display:none}
-  .hero h1 br{display:none}
-  .trust-photo{aspect-ratio:4/3}
-  .trust-photo img{width:100%;height:100%;object-fit:cover}
-  form{padding:1.6rem}
+/* 스크롤하면 한 번만 나타나기 */
+.reveal{opacity:0;transform:translateY(28px)}
+.reveal.in{opacity:1;transform:none;transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.card.reveal.in:hover{transform:translateY(-10px)}
+.fact.reveal.in:hover{transform:translateY(-8px)}
+.hero .stagger{opacity:0;transform:translateY(20px);animation:up 1s var(--ease) forwards}
+@keyframes up{to{opacity:1;transform:none}}
+
+@media (max-width:960px){
+  .grid4{grid-template-columns:repeat(2,1fr)}
+  .how,.apply{grid-template-columns:1fr;gap:2.5rem}
+  .apply .side img{display:none}
+}
+@media (max-width:720px){
+  .nav nav{display:none}
+  .grid3,.grid4{grid-template-columns:1fr}
+  .trio{grid-template-columns:1fr 1fr;gap:.8rem;margin-top:3rem}
+  .trio figure:nth-child(3){display:none}
+  section.block{padding:5.5rem 0}
+  .parts{aspect-ratio:4/3}
+  .cols{grid-template-columns:1fr 1fr}
+  .cols>div:first-child,.cols>div:last-child{grid-column:1/-1}
+  form{padding:1.5rem}
+  .shiny span{padding:.95rem 1.8rem}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .word span{transform:none;opacity:1}
+  .reveal,.hero .stagger{opacity:1;transform:none}
   html{scroll-behavior:auto}
 }
 </style>
 </head>
 <body>
+<div class="orbs" aria-hidden="true"><span class="orb v"></span><span class="orb c"></span><span class="orb w"></span></div>
 
 <header class="nav">
-  <div class="wrap">
-    <a class="logo" href="#top" aria-label="엔그로운 처음으로"><img src="/assets/logo.png" alt="N-GROWN" width="600" height="129"></a>
-    <nav class="pill" aria-label="바로가기">
-      <a href="#products">제품</a>
-      <a href="#trust">믿을 수 있는 이유</a>
-      <a href="#how">진행 방식</a>
-    </nav>
-    <a class="btn small" href="#apply">판매 희망 남기기</a>
-  </div>
+  <a class="brand" href="#top" aria-label="엔그로운 처음으로"><i></i>N-GROWN</a>
+  <nav aria-label="바로가기">
+    <a href="#products">제품</a>
+    <a href="#trust">믿을 수 있는 이유</a>
+    <a href="#how">진행 방식</a>
+  </nav>
+  <a class="cta-sm" href="#apply">판매 희망 남기기</a>
 </header>
 
 <main id="top">
   <section class="hero" aria-labelledby="hero-title">
-    <div class="float f1" data-speed=".05"><img src="/assets/shelf.jpg" alt="곰돌이 모양 원목 1단 책장" width="1000" height="1000"></div>
-    <div class="float f2" data-speed=".08"><img src="/assets/stand-room.jpg" alt="웃는 얼굴이 새겨진 원목 아기 독서대" width="900" height="1439"></div>
-    <div class="float f3" data-speed=".03"><img src="/assets/stool.jpg" alt="곰돌이 모양 원목 1인 스툴" width="1000" height="1000"></div>
-
-    <p class="word" aria-hidden="true"><span>N</span><span>-</span><span>G</span><span>R</span><span>O</span><span>W</span><span>N</span></p>
-
-    <div class="wrap hero-foot">
-      <div>
-        <p class="made">아해교육포럼 · 엔그로운 몬테소리 원목 시리즈</p>
-        <h1 id="hero-title">아이에게 자신 있게 권할 원목 교구,<br>함께 소개해 주실 공구 파트너를 찾습니다.</h1>
-      </div>
-      <div class="hero-side">
-        <p>1단 책장, 1인 스툴, 아기 독서대. 판매 희망을 남기시면 공구가와 진행 조건을 따로 안내해 드려요.</p>
-        <a class="btn" href="#apply">판매 희망 남기기</a>
-      </div>
+    <p class="made stagger" style="animation-delay:.1s"><b></b>아해교육포럼 엔그로운 몬테소리 원목 시리즈</p>
+    <h1 id="hero-title" class="stagger" style="animation-delay:.25s">아이에게 자신 있게 권할 원목 교구, <span class="shimmer">공구 파트너를 찾습니다</span></h1>
+    <p class="sub stagger" style="animation-delay:.45s">1단 책장, 1인 스툴, 아기 독서대. 판매 희망을 남기시면 공구가와 진행 조건을 따로 안내해 드려요.</p>
+    <div class="actions stagger" style="animation-delay:.65s">
+      <a class="shiny" href="#apply"><span>판매 희망 남기기</span></a>
+      <a class="link" href="#products">제품 먼저 보기</a>
+    </div>
+    <div class="trio stagger" style="animation-delay:.85s">
+      <figure><img src="/assets/shelf.jpg" alt="곰돌이 모양 원목 1단 책장" width="1000" height="1000"></figure>
+      <figure><img src="/assets/stool-shoes.jpg" alt="현관에서 1인 스툴에 앉아 신발을 신는 아이" width="1000" height="649"></figure>
+      <figure><img src="/assets/stand-room.jpg" alt="웃는 얼굴이 새겨진 원목 아기 독서대" width="900" height="1439"></figure>
     </div>
   </section>
 
-  <section class="panel products" id="products" aria-labelledby="p-title">
+  <div class="ticker" aria-label="제품 주요 정보">
+    <div class="track">
+      <div><small>재질</small><strong>러시아산 자작나무</strong></div>
+      <div><small>자재 등급</small><strong class="v">E0 등급 이상</strong></div>
+      <div><small>도료</small><strong>친환경 수성페인트</strong></div>
+      <div><small>안전 확인</small><strong class="c">KOTITI · FITI 공급자 적합성</strong></div>
+      <div><small>조립</small><strong>DIY · QR 영상 가이드</strong></div>
+      <div><small>1단 책장</small><strong>480 × 290 × 230mm</strong></div>
+      <div><small>1인 스툴</small><strong>425 × 285 × 230mm</strong></div>
+      <div><small>아기 독서대</small><strong>450 × 300 × 326mm</strong></div>
+      <div><small>제조</small><strong class="v">주식회사 아해교육포럼</strong></div>
+      <div aria-hidden="true"><small>재질</small><strong>러시아산 자작나무</strong></div>
+      <div aria-hidden="true"><small>자재 등급</small><strong class="v">E0 등급 이상</strong></div>
+      <div aria-hidden="true"><small>도료</small><strong>친환경 수성페인트</strong></div>
+      <div aria-hidden="true"><small>안전 확인</small><strong class="c">KOTITI · FITI 공급자 적합성</strong></div>
+      <div aria-hidden="true"><small>조립</small><strong>DIY · QR 영상 가이드</strong></div>
+      <div aria-hidden="true"><small>1단 책장</small><strong>480 × 290 × 230mm</strong></div>
+      <div aria-hidden="true"><small>1인 스툴</small><strong>425 × 285 × 230mm</strong></div>
+      <div aria-hidden="true"><small>아기 독서대</small><strong>450 × 300 × 326mm</strong></div>
+      <div aria-hidden="true"><small>제조</small><strong class="v">주식회사 아해교육포럼</strong></div>
+    </div>
+  </div>
+
+  <section class="block" id="products" aria-labelledby="p-title">
     <div class="wrap">
-      <div class="head">
-        <div>
-          <h2 id="p-title">소개해 주실 제품</h2>
-          <p class="lead">몬테소리 교육철학을 바탕으로, 아이가 스스로 꺼내고 앉고 읽도록 만든 원목 가구 3종이에요.</p>
-        </div>
+      <div class="head reveal">
+        <h2 id="p-title">소개해 주실 제품</h2>
+        <p>몬테소리 교육철학을 바탕으로, 아이가 스스로 꺼내고 앉고 읽도록 만든 원목 가구 3종이에요.</p>
       </div>
-      <div class="grid">
-        <article class="card">
+      <div class="grid3">
+        <article class="card reveal">
           <div class="ph"><img src="/assets/shelf-books.jpg" alt="그림책을 꽂은 곰돌이 1단 책장" loading="lazy" width="1000" height="932"></div>
-          <h3>몬테소리 곰돌이 1단 책장</h3>
-          <span class="for">아이 눈높이 사이즈</span>
-          <p>아이가 스스로 책을 꺼내 읽고 다시 꽂을 수 있어요. 가벼워서 거실, 아이방, 잠자리 어디로든 옮기기 쉬워요.</p>
-          <dl class="spec"><dt>크기</dt><dd>480 × 290 × 230mm</dd><dt>재질</dt><dd>러시아산 자작나무</dd></dl>
+          <div class="body">
+            <h3>몬테소리 곰돌이 1단 책장</h3>
+            <span class="chip">아이 눈높이 사이즈</span>
+            <p>아이가 스스로 책을 꺼내 읽고 다시 꽂을 수 있어요. 가벼워서 거실, 아이방, 잠자리 어디로든 옮기기 쉬워요.</p>
+            <dl class="spec"><dt>크기</dt><dd>480 × 290 × 230mm</dd><dt>재질</dt><dd>러시아산 자작나무</dd></dl>
+          </div>
         </article>
-        <article class="card">
-          <div class="ph"><img src="/assets/stool-shoes.jpg" alt="현관에서 1인 스툴에 앉아 신발을 신는 아이" loading="lazy" width="1000" height="649"></div>
-          <h3>몬테소리 원목 1인 스툴</h3>
-          <span class="for">걸음마 이후부터</span>
-          <p>도움 없이 앉고 일어나며, 현관에서 혼자 신발을 신는 연습을 할 수 있어요. 생활 속 자립 교육을 돕는 가구예요.</p>
-          <dl class="spec"><dt>크기</dt><dd>425 × 285 × 230mm</dd><dt>재질</dt><dd>러시아산 자작나무</dd></dl>
+        <article class="card reveal">
+          <div class="ph"><img src="/assets/stool.jpg" alt="곰돌이 모양 원목 1인 스툴" loading="lazy" width="1000" height="1000"></div>
+          <div class="body">
+            <h3>몬테소리 원목 1인 스툴</h3>
+            <span class="chip">걸음마 이후부터</span>
+            <p>도움 없이 앉고 일어나며, 현관에서 혼자 신발을 신는 연습을 할 수 있어요. 생활 속 자립 교육을 돕는 가구예요.</p>
+            <dl class="spec"><dt>크기</dt><dd>425 × 285 × 230mm</dd><dt>재질</dt><dd>러시아산 자작나무</dd></dl>
+          </div>
         </article>
-        <article class="card">
+        <article class="card reveal">
           <div class="ph"><img src="/assets/stand-book.jpg" alt="그림책을 올려 둔 원목 아기 독서대" loading="lazy" width="1000" height="830"></div>
-          <h3>몬테소리 원목 아기 독서대</h3>
-          <span class="for">스스로 앉을 수 있는 시기부터</span>
-          <p>허리를 굽히거나 고개를 떨구지 않고 바른 자세로 책을 보게 해 줘요. 스스로 읽는 습관의 시작을 도와요.</p>
-          <dl class="spec"><dt>크기</dt><dd>450 × 300 × 326mm</dd><dt>재질</dt><dd>러시아산 자작나무</dd></dl>
+          <div class="body">
+            <h3>몬테소리 원목 아기 독서대</h3>
+            <span class="chip">스스로 앉을 수 있는 시기부터</span>
+            <p>허리를 굽히거나 고개를 떨구지 않고 바른 자세로 책을 보게 해 줘요. 스스로 읽는 습관의 시작을 도와요.</p>
+            <dl class="spec"><dt>크기</dt><dd>450 × 300 × 326mm</dd><dt>재질</dt><dd>러시아산 자작나무</dd></dl>
+          </div>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="panel trust" id="trust" aria-labelledby="t-title">
+  <section class="block" id="trust" aria-labelledby="t-title">
     <div class="wrap">
-      <div class="head">
-        <div>
-          <h2 id="t-title">팔로워에게 자신 있게<br>권할 수 있는 이유</h2>
-          <p class="lead">아이가 매일 만지는 가구라서, 재료와 안전부터 확인했어요.</p>
+      <div class="head reveal">
+        <h2 id="t-title">팔로워에게 자신 있게 권할 수 있는 이유</h2>
+        <p>아이가 매일 만지는 가구라서, 재료와 안전부터 확인했어요.</p>
+      </div>
+      <div class="grid4">
+        <div class="fact reveal">
+          <div class="icon w" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12c-4 0-7-3-7-7 4 0 7 3 7 7Z"/><path d="M12 12c4 0 7-3 7-7-4 0-7 3-7 7Z"/></svg></div>
+          <h3>E0 등급 이상 러시아산 자작나무</h3>
+          <p>아이들의 안전과 건강을 생각해 친환경 자재로 만들었어요.</p>
+        </div>
+        <div class="fact reveal">
+          <div class="icon v" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 3H6v6h12V3Z"/><path d="M12 9v4"/><path d="M10 13h4v8h-4z"/></svg></div>
+          <h3>친환경 수성페인트</h3>
+          <p>얼굴 그림과 마감에 친환경 수성페인트를 사용했어요.</p>
+        </div>
+        <div class="fact reveal">
+          <div class="icon e" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <h3>시험연구원 공급자 적합성 확인</h3>
+          <p>1단 책장과 1인 스툴은 KOTITI 시험연구원, 아기 독서대는 FITI 시험연구원에서 확인받았어요.</p>
+        </div>
+        <div class="fact reveal">
+          <div class="icon c" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"/></svg></div>
+          <h3>누구나 쉬운 DIY 조립</h3>
+          <p>모든 부품과 육각렌치가 함께 들어 있고, QR 영상 조립 가이드를 제공해요.</p>
         </div>
       </div>
-      <div class="trust-body">
-        <ul class="facts">
-          <li><strong>E0 등급 이상 러시아산 자작나무</strong><span>아이들의 안전과 건강을 생각해 친환경 자재로 만들었어요.</span></li>
-          <li><strong>친환경 수성페인트</strong><span>얼굴 그림과 마감에 친환경 수성페인트를 사용했어요.</span></li>
-          <li><strong>시험연구원 공급자 적합성 확인</strong><span>1단 책장과 1인 스툴은 KOTITI 시험연구원, 아기 독서대는 FITI 시험연구원에서 확인받았어요.</span></li>
-          <li><strong>누구나 쉬운 DIY 조립</strong><span>모든 부품과 육각렌치가 함께 들어 있고, QR 영상 조립 가이드를 제공해요.</span></li>
-        </ul>
-        <div class="trust-photo"><img src="/assets/parts.jpg" alt="곰돌이 옆판, 받침판, 육각렌치로 구성된 조립 부품" loading="lazy" width="1000" height="930"></div>
+      <div class="parts reveal"><img src="/assets/parts.jpg" alt="곰돌이 옆판, 받침판, 육각렌치로 구성된 조립 부품" loading="lazy" width="1000" height="930"></div>
+    </div>
+  </section>
+
+  <section class="block" id="how" aria-labelledby="h-title">
+    <div class="wrap how">
+      <div class="head reveal" style="margin-bottom:0">
+        <h2 id="h-title">공구는 이렇게 진행돼요</h2>
+        <p>공구가와 수익은 채널마다 따로 안내해 드려요. 먼저 판매 희망만 가볍게 남겨 주세요.</p>
+        <p class="note">배송, CS, 샘플, 최소 수량 같은 세부 조건도 연락드릴 때 함께 안내해 드려요.</p>
+      </div>
+      <div class="window reveal">
+        <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>공구 진행 순서</span></div>
+        <ol class="steps">
+          <li><h3>판매 희망 남기기</h3><p>이름, 연락처, 활동 채널 주소만 적으면 끝나요.</p></li>
+          <li><h3>담당자 연락</h3><p>채널을 확인한 뒤 연락드려 공구가, 수익, 진행 방식을 안내해 드려요.</p></li>
+          <li><h3>일정 맞추고 공구 오픈</h3><p>함께 정한 일정에 맞춰 공구를 열어요.</p></li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <section class="panel how" id="how" aria-labelledby="h-title">
-    <div class="wrap">
-      <div class="head">
-        <div>
-          <h2 id="h-title">공구는 이렇게 진행돼요</h2>
-          <p class="lead">공구가와 수익은 채널마다 따로 안내해 드려요. 먼저 판매 희망만 가볍게 남겨 주세요.</p>
+  <section class="block" id="apply" aria-labelledby="a-title">
+    <div class="wrap apply">
+      <div class="side">
+        <div class="head reveal" style="margin-bottom:0">
+          <h2 id="a-title">판매 희망 남기기</h2>
+          <p>남겨 주신 채널을 보고 담당자가 연락드릴게요.</p>
         </div>
-      </div>
-      <ol class="steps">
-        <li><h3>판매 희망 남기기</h3><p>이름, 연락처, 활동 채널 주소만 적으면 끝나요.</p></li>
-        <li><h3>담당자 연락</h3><p>채널을 확인한 뒤 연락드려 공구가, 수익, 진행 방식을 안내해 드려요.</p></li>
-        <li><h3>일정 맞추고 공구 오픈</h3><p>함께 정한 일정에 맞춰 공구를 열어요.</p></li>
-      </ol>
-      <p class="note">배송, CS, 샘플, 최소 수량 같은 세부 조건도 연락드릴 때 함께 안내해 드려요.</p>
-    </div>
-  </section>
-
-  <section class="panel apply" id="apply" aria-labelledby="a-title">
-    <div class="wrap apply-body">
-      <div>
-        <h2 id="a-title">판매 희망 남기기</h2>
-        <p class="lead">남겨 주신 채널을 보고 담당자가 연락드릴게요.</p>
-        <div class="apply-photo"><img src="/assets/stand-room.jpg" alt="아이방에 놓인 원목 아기 독서대" loading="lazy" width="900" height="1439"></div>
+        <img class="reveal" src="/assets/stand-room.jpg" alt="아이방에 놓인 원목 아기 독서대" loading="lazy" width="900" height="1439">
       </div>
 
-      <form id="apply-form" novalidate>
+      <form id="apply-form" class="reveal" novalidate>
         <div class="field">
           <label for="name">이름 또는 채널 이름</label>
           <input id="name" name="name" autocomplete="name" maxlength="50" required>
@@ -283,7 +383,7 @@ footer img{height:22px;width:auto;filter:brightness(0) invert(1);opacity:.85;mar
           <input type="checkbox" id="consent">
           <span><strong>개인정보 수집·이용에 동의해요 (필수)</strong><br>이름, 연락처, 활동 채널 주소를 공구 상담 연락에만 쓰고, 상담이 끝나면 지체 없이 파기해요.</span>
         </label>
-        <button class="btn" type="submit">판매 희망 남기기</button>
+        <button class="shiny" type="submit"><span>판매 희망 남기기</span></button>
         <p class="msg" id="msg" role="status" aria-live="polite"></p>
       </form>
     </div>
@@ -292,30 +392,38 @@ footer img{height:22px;width:auto;filter:brightness(0) invert(1);opacity:.85;mar
 
 <footer>
   <div class="wrap">
-    <div>
-      <img src="/assets/logo.png" alt="N-GROWN" width="600" height="129">
-      <p>주식회사 아해교육포럼</p>
-      <p>경기도 용인시 수지구 풍덕천로190번길 25, 신건프라자 6F</p>
+    <div class="cols">
+      <div>
+        <a class="brand" href="#top"><i></i>N-GROWN</a>
+        <p>Nature-Grown. 자연 친화적인 소재로 아이의 성장과 발달을 돕는 원목 가구예요.</p>
+      </div>
+      <div>
+        <h4>제품</h4>
+        <ul><li><a href="#products">1단 책장</a></li><li><a href="#products">1인 스툴</a></li><li><a href="#products">아기 독서대</a></li></ul>
+      </div>
+      <div>
+        <h4>공구 파트너</h4>
+        <ul><li><a href="#how">진행 방식</a></li><li><a href="#apply">판매 희망 남기기</a></li></ul>
+      </div>
+      <div>
+        <h4>회사</h4>
+        <ul><li>주식회사 아해교육포럼</li><li>경기도 용인시 수지구 풍덕천로190번길 25, 신건프라자 6F</li><li>고객센터 <a href="tel:031-262-1881">031-262-1881</a></li></ul>
+      </div>
     </div>
-    <div>
-      <p>고객센터 <a href="tel:031-262-1881">031-262-1881</a></p>
-      <p>© 아해교육포럼</p>
+    <div class="bottom">
+      <span>© 아해교육포럼</span>
+      <span class="live"><b></b>판매 희망 접수 중</span>
     </div>
   </div>
 </footer>
 
 <script>
-// 첫 화면 글자가 한 자씩 올라오기
-document.querySelectorAll('.word span').forEach((s,i)=>{ s.style.animationDelay=(0.15+i*0.06)+'s'; });
-
-// 떠 있는 사진: 스크롤에 따라 살짝 다른 속도로
-const floats=[...document.querySelectorAll('.float')];
-const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
-if(!still){
-  let ticking=false;
-  addEventListener('scroll',()=>{ if(ticking) return; ticking=true; requestAnimationFrame(()=>{
-    const y=scrollY; floats.forEach(f=>f.style.setProperty('--py',(-y*parseFloat(f.dataset.speed))+'px')); ticking=false; }); },{passive:true});
-}
+// 스크롤하면 한 번만 나타나기 (같은 줄의 카드는 조금씩 늦게)
+const io='IntersectionObserver' in window ? new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }),{threshold:.12}) : null;
+document.querySelectorAll('.grid3,.grid4').forEach(g=>[...g.children].forEach((c,i)=>c.style.transitionDelay=(i*0.1)+'s'));
+document.querySelectorAll('.reveal').forEach(el=> io ? io.observe(el) : el.classList.add('in'));
+// 나타난 뒤에는 호버가 바로 반응하도록 지연을 없앤다
+document.addEventListener('transitionend',e=>{ if(e.target.classList.contains('in')) e.target.style.transitionDelay=''; });
 
 // 판매 희망 보내기
 const form=document.getElementById('apply-form'), msg=document.getElementById('msg');
@@ -326,16 +434,16 @@ form.addEventListener('submit',async e=>{
   if(!v('name')||!v('contact')){ msg.className='msg err'; msg.textContent='이름과 연락처를 적어 주세요'; return; }
   const consent=document.getElementById('consent').checked;
   if(!consent){ msg.className='msg err'; msg.textContent='개인정보 수집·이용에 동의해 주세요'; return; }
-  const btn=form.querySelector('button'); btn.disabled=true; btn.textContent='보내는 중…';
+  const btn=form.querySelector('button'), label=btn.querySelector('span'); btn.disabled=true; label.textContent='보내는 중…';
   try{
     const r=await fetch('/api/inquiry',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({name:v('name'),contact:v('contact'),channel:v('channel'),website:v('website'),consent})});
     const d=await r.json().catch(()=>({}));
     if(!r.ok) throw new Error(d.error||'보내지 못했어요. 잠시 뒤 다시 시도해 주세요.');
-    form.innerHTML='<div class="done" role="status"><strong>판매 희망이 접수됐어요.</strong>확인 후 연락드릴게요.</div>';
+    form.innerHTML='<div class="done" role="status"><span class="dot"></span><strong>판매 희망이 접수됐어요.</strong>확인 후 연락드릴게요.</div>';
   }catch(err){
     msg.className='msg err'; msg.textContent=err.message||'보내지 못했어요. 잠시 뒤 다시 시도해 주세요.';
-    btn.disabled=false; btn.textContent='판매 희망 남기기';
+    btn.disabled=false; label.textContent='판매 희망 남기기';
   }
 });
 </script>
